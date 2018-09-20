@@ -16,7 +16,6 @@ def solution(N,multiples_list):
     else:
       max_scale[multiple] = int(N/multiple)
     all_permissable_numbers += [multiple*k for k in range(1,max_scale[multiple]+1)]
-  print(all_permissable_numbers)
   return sum(set(all_permissable_numbers))
 
 
