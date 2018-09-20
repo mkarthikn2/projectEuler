@@ -8,19 +8,15 @@ import math
 
 
 def solution(N,multiples_list):
-  max_scale = {}
   all_permissable_numbers = []
   for multiple in multiples_list:
-    if N%multiple == 0:
-      max_scale[multiple] = N/multiple - 1
-    else:
-      max_scale[multiple] = int(N/multiple)
-    all_permissable_numbers += [multiple*k for k in range(1,max_scale[multiple]+1)]
+    max_scale = N/multiple - 1 if N%multiple == 0 else int(N/multiple)
+    all_permissable_numbers += [multiple*k for k in range(max_scale+1)]
   return sum(set(all_permissable_numbers))
 
 
 
 if __name__ == "__main__":
-  N = 1000
+  N = 10
   multiples_list = [3,5]
   print(solution(N,multiples_list))
